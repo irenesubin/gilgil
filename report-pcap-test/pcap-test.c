@@ -53,11 +53,13 @@ int main(int argc, char* argv[]) {
 			break;
 		}
 
+        //sizeof는 함수가 아니다.
         ethernet = (struct libnet_ethernet_hdr *)packet;
         ip = (struct libnet_ipv4_hdr*) (packet + sizeof(*ethernet));
         tcp = (struct libnet_tcp_hdr*) (packet + sizeof(*ethernet) + sizeof(*ip));
         
         //src MAC / dst MAC
+        //EHTERTYPE IP
         printf("==========================\n");
         printf("<Ethernet>\n");
         printf("Dst MAC:");
